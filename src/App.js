@@ -2,12 +2,15 @@
 import React from 'react';
 // import logo from './logo.svg';
 // import './App.css';
-import { Test } from './components';
+import { Test, ComponentA } from './components';
 
 export default class App extends React.Component {
   render() {
     return (
-      <Test />
+      <div>
+        <Test />
+        <ComponentA />
+      </div>
     );
   }
 }
