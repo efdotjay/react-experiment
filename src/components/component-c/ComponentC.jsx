@@ -134,6 +134,7 @@ export default class ComponentC extends React.Component {
     return (
       <div className={classes.ComponentContainer}>
         <p>Component <code>C</code> - <small>{name} <i>({speed})</i></small></p>
+        
         <button className={classes.Button} onClick={this.toggleNameHandler}>Change C's state</button>
       </div>
     );

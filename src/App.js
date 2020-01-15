@@ -24,10 +24,12 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <h1>React Component Lifecycle</h1>
+        
         <label htmlFor="log-args-ckbx"><input type="checkbox" id="log-args-ckbx" checked={logArgs} onClick={this.toggleLogArgsHandler} readOnly={true}/> log arguments</label>
         <br /><br />
         <button onClick={this.toggleAHandler}>{showA ? 'Unmount' : 'Mount'} Component A</button>
         <br /><br /><hr /><br /><br />
+
         {showA && <ComponentA {...{logArgs}}/>}
       </div>
     );

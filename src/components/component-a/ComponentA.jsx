@@ -145,6 +145,7 @@ export default class ComponentA extends React.Component {
     return (
       <div className={classes.ComponentContainer}>
         <p>Component <code>A</code> - <small>{name}</small></p>
+        
         <button className={classes.Button} onClick={this.toggleNameHandler}>Change A's state</button>
         <button className={classes.Button} onClick={this.toggleBHandler}>{showB ? 'Unmount' : 'Mount'} B</button>
         {showB && <button className={classes.Button} onClick={this.bMassChangeHandler}>Change B's props</button>}
