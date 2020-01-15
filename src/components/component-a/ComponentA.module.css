@@ -7,3 +7,9 @@
   padding: 0.8rem;
   background-color: #d1d1d1;
 }
+
+.Button {
+  margin: 5px;
+  padding: 3px 5px;
+  cursor: pointer;
+}

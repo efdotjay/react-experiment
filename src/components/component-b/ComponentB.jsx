@@ -27,8 +27,11 @@ export default class ComponentB extends React.Component {
   }
 
   state = {
+    name: 'Bus',
     color: 'blue',
-    hasError: false
+    hasError: false,
+    showC: false,
+    cSpeed: 10
   }
 
   constructor(props) {
@@ -106,15 +109,32 @@ export default class ComponentB extends React.Component {
     console.log('Comp B - componentWillUnmount()');
   }
 
+  toggleNameHandler = () => {
+    this.setState(state => ({ name: state.name === 'Bus' ? 'Baboon' : 'Bus' }));
+  };
+
+  toggleCHandler = () => {
+    this.setState(state => ({ showC: !state.showC }));
+  };
+
+  cSpeedChangeHandler = () => {
+    this.setState(state => ({ cSpeed: state.cSpeed + 5 }));
+  }
+
   render() {
     console.log('Comp B - render()');
 
-    const { color } = this.state;
+    const { color, name, showC, cSpeed } = this.state;
+    const { mass } = this.props;
 
     return (
       <div className={classes.ComponentContainer}>
-        <p style={{ color }}>Component <code>B</code></p>
-        <ComponentC />
+        <p style={{ color }}>Component <code>B</code> - <small>{name} <i>({mass})</i></small></p>
+        <button className={classes.Button} onClick={this.toggleNameHandler}>Change B's state</button>
+        <button className={classes.Button} onClick={this.toggleCHandler}>Toggle C</button>
+        {showC && <button className={classes.Button} onClick={this.cSpeedChangeHandler}>Change C's props</button>}
+
+        {showC && <ComponentC speed={cSpeed}/>}
       </div>
     );
   }

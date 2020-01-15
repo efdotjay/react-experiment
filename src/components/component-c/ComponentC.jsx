@@ -26,6 +26,7 @@ export default class ComponentC extends React.Component {
   }
 
   state = {
+    name: 'Car',
     color: 'green',
     hasError: false
   }
@@ -105,14 +106,20 @@ export default class ComponentC extends React.Component {
     console.log('Comp C - componentWillUnmount()');
   }
 
+  toggleNameHandler = () => {
+    this.setState(state => ({ name: state.name === 'Car' ? 'Cobra' : 'Car' }));
+  };
+
   render() {
     console.log('Comp C - render()');
 
-    const { color } = this.state;
+    const { color, name } = this.state;
+    const { speed } = this.props;
 
     return (
       <div className={classes.ComponentContainer}>
-        <p style={{ color }}>Component <code>C</code></p>
+        <p style={{ color }}>Component <code>C</code> - <small>{name} <i>({speed})</i></small></p>
+        <button className={classes.Button} onClick={this.toggleNameHandler}>Change C's state</button>
       </div>
     );
   }
