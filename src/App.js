@@ -1,26 +1,34 @@
 
 import React from 'react';
 // import logo from './logo.svg';
-// import './App.css';
+import './App.css';
 import { ComponentA } from './components';
 
 export default class App extends React.Component {
   state = {
-    logArgs: true
+    logArgs: true,
+    showA: false
   };
 
   toggleLogArgsHandler = () => {
     this.setState(state => ({ logArgs: !state.logArgs }));
-  }
+  };
+
+  toggleAHandler = () => {
+    this.setState(state => ({ showA: !state.showA }));
+  };
 
   render() {
-    const { logArgs } = this.state;
+    const { logArgs, showA } = this.state;
 
     return (
-      <div>
-        <h2>React lifecycle methods <sub>new</sub></h2>
-        <label htmlFor="log-args-ckbx"><input type="checkbox" id="log-args-ckbx" checked={logArgs} onClick={this.toggleLogArgsHandler} readOnly={true}/> Log arguments.</label>
-        <ComponentA {...{logArgs}}/>
+      <div className="App">
+        <h1>React Lifecycle Methods</h1>
+        <label htmlFor="log-args-ckbx"><input type="checkbox" id="log-args-ckbx" checked={logArgs} onClick={this.toggleLogArgsHandler} readOnly={true}/> log arguments</label>
+        <br /><br />
+        <button onClick={this.toggleAHandler}>Toggle Component A</button>
+        <br /><br /><hr /><br /><br />
+        {showA && <ComponentA {...{logArgs}}/>}
       </div>
     );
   }

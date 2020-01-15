@@ -2,7 +2,7 @@
 .ComponentContainer {
   width: fit-content;
   min-width: 350px;
-  border: 1px solid #c1d1d1;
+  border: 1px solid #c1c1c1;
   box-shadow: rgba(0,0,0,0.15) 3px 3px 6px;
   border-radius: 3px;
   padding: 0.8rem;
@@ -16,6 +16,12 @@
   cursor: pointer;
   background-color: transparent;
   color: rgba(0,0,0,0.4);
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid #c1c1c1;
   font-size: 0.7em;
+  transition: all 0.3s;
+}
+
+.Button:hover {
+  background-color: #c1c1c1;
+  color: #000;
 }
