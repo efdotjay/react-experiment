@@ -28,7 +28,6 @@ export default class ComponentB extends React.Component {
 
   state = {
     name: 'Bus',
-    color: 'blue',
     hasError: false,
     showC: false,
     cSpeed: 10
@@ -124,12 +123,12 @@ export default class ComponentB extends React.Component {
   render() {
     console.log('Comp B - render()');
 
-    const { color, name, showC, cSpeed } = this.state;
+    const { name, showC, cSpeed } = this.state;
     const { mass } = this.props;
 
     return (
       <div className={classes.ComponentContainer}>
-        <p style={{ color }}>Component <code>B</code> - <small>{name} <i>({mass})</i></small></p>
+        <p>Component <code>B</code> - <small>{name} <i>({mass})</i></small></p>
         <button className={classes.Button} onClick={this.toggleNameHandler}>Change B's state</button>
         <button className={classes.Button} onClick={this.toggleCHandler}>Toggle C</button>
         {showC && <button className={classes.Button} onClick={this.cSpeedChangeHandler}>Change C's props</button>}
