@@ -2,7 +2,7 @@
 .ComponentContainer {
   width: fit-content;
   min-width: 350px;
-  /* border: 1px solid #b1b1b1; */
+  border: 1px solid #b1b1b1;
   box-shadow: rgba(0,0,0,0.25) 3px 3px 6px;
   border-radius: 3px;
   padding: 0.8rem;
