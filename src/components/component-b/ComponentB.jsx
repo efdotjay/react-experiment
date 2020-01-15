@@ -7,6 +7,7 @@ export default class ComponentB extends React.Component {
   static getDerivedStateFromError(error) {
     console.log('Comp B - getDerivedStateFromError()');
     console.log('-- error -->', error);
+    console.log('___________________________________');
 
     return { hasError: true };
   }
@@ -14,16 +15,18 @@ export default class ComponentB extends React.Component {
   /** New lifecycle method */
   static getDerivedStateFromProps(props, state) {
     console.log('Comp B - getDerivedStateFromProps()');
-    console.log('-- props -->', props);
-    console.log('-- state -->', state);
+    props.logArgs && console.log('-- props -->', props);
+    props.logArgs && console.log('-- state -->', state);
+    console.log('___________________________________');
 
     return state;
   }
 
   componentDidCatch(error, info) {
     console.log('Comp B - componentDidCatch()');
-    console.log('-- error -->', error);
-    console.log('-- info -->', info);
+    this.props.logArgs && console.log('-- error -->', error);
+    this.props.logArgs && console.log('-- info -->', info);
+    console.log('___________________________________');
   }
 
   state = {
@@ -37,39 +40,46 @@ export default class ComponentB extends React.Component {
     super(props);
 
     console.log('Comp B - constructor()');
-    console.log('-- props -->', props);
+    props.logArgs && console.log('-- props -->', props);
+    console.log('___________________________________');
   }
 
   /** Legacy lifecycle method */
   // componentWillReceiveProps(nextProps) {
   //   console.log('Comp B - componentWillReceiveProps() - legacy');
-  //   console.log('-- nextProps -->', nextProps);
+  //   this.props.logArgs && console.log('-- nextProps -->', nextProps);
+  //   console.log('___________________________________');
   // }
 
   /** Legacy lifecycle method with prefix */
   // UNSAFE_componentWillReceiveProps(nextProps) {
   //   console.log('Comp B - UNSAFE_componentWillReceiveProps() - legacy');
-  //   console.log('-- nextProps -->', nextProps);
+  //   this.props.logArgs && console.log('-- nextProps -->', nextProps);
+  //   console.log('___________________________________');
   // }
 
   /** Legacy lifecycle method */
   // componentWillMount() {
   //   console.log('Comp B - componentWillMount() - legacy');
+  //   console.log('___________________________________');
   // }
 
   /** Legacy lifecycle method with prefix */
   // UNSAFE_componentWillMount() {
   //   console.log('Comp B - UNSAFE_componentWillMount() - legacy');
+  //   console.log('___________________________________');
   // }
 
   componentDidMount() {
     console.log('Comp B - componentDidMount()');
+    console.log('___________________________________');
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log('Comp B - shouldComponentUpdate()');
-    console.log('-- nextProps -->', nextProps);
-    console.log('-- nextState -->', nextState);
+    this.props.logArgs && console.log('-- nextProps -->', nextProps);
+    this.props.logArgs && console.log('-- nextState -->', nextState);
+    console.log('___________________________________');
 
     return true;
   }
@@ -77,8 +87,9 @@ export default class ComponentB extends React.Component {
   /** New lifecycle method */
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log('Comp B - getSnapshotBeforeUpdate()');
-    console.log('-- prevProps -->', prevProps);
-    console.log('-- prevState -->', prevState);
+    prevProps.logArgs && console.log('-- prevProps -->', prevProps);
+    prevProps.logArgs && console.log('-- prevState -->', prevState);
+    console.log('___________________________________');
 
     return { anyValue: 512 };
   }
@@ -86,26 +97,30 @@ export default class ComponentB extends React.Component {
   /** Legacy lifecycle method */
   // componentWillUpdate(nextProps, nextState) {
   //   console.log('Comp B - componentWillUpdate() - legacy');
-  //   console.log('-- nextProps -->', nextProps);
-  //   console.log('-- nextState -->', nextState);
+  //   this.props.logArgs && console.log('-- nextProps -->', nextProps);
+  //   this.props.logArgs && console.log('-- nextState -->', nextState);
+  //   console.log('___________________________________');
   // }
 
   /** Legacy lifecycle method with prefix */
   // UNSAFE_componentWillUpdate(nextProps, nextState) {
   //   console.log('Comp B - UNSAFE_componentWillUpdate() - legacy');
-  //   console.log('-- nextProps -->', nextProps);
-  //   console.log('-- nextState -->', nextState);
+  //   this.props.logArgs && console.log('-- nextProps -->', nextProps);
+  //   this.props.logArgs && console.log('-- nextState -->', nextState);
+  //   console.log('___________________________________');
   // }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('Comp B - componentDidUpdate()');
-    console.log('-- prevProps -->', prevProps);
-    console.log('-- prevState -->', prevState);
-    console.log('-- snapshot -->', snapshot);
+    prevProps.logArgs && console.log('-- prevProps -->', prevProps);
+    prevProps.logArgs && console.log('-- prevState -->', prevState);
+    prevProps.logArgs && console.log('-- snapshot -->', snapshot);
+    console.log('___________________________________');
   }
 
   componentWillUnmount() {
     console.log('Comp B - componentWillUnmount()');
+    console.log('___________________________________');
   }
 
   toggleNameHandler = () => {
@@ -122,9 +137,10 @@ export default class ComponentB extends React.Component {
 
   render() {
     console.log('Comp B - render()');
+    console.log('___________________________________');
 
     const { name, showC, cSpeed } = this.state;
-    const { mass } = this.props;
+    const { mass, logArgs } = this.props;
 
     return (
       <div className={classes.ComponentContainer}>
@@ -133,7 +149,7 @@ export default class ComponentB extends React.Component {
         <button className={classes.Button} onClick={this.toggleCHandler}>Toggle C</button>
         {showC && <button className={classes.Button} onClick={this.cSpeedChangeHandler}>Change C's props</button>}
 
-        {showC && <ComponentC speed={cSpeed}/>}
+        {showC && <ComponentC speed={cSpeed} {...{logArgs}}/>}
       </div>
     );
   }

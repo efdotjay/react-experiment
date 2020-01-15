@@ -6,6 +6,7 @@ export default class ComponentC extends React.Component {
   static getDerivedStateFromError(error) {
     console.log('Comp C - getDerivedStateFromError()');
     console.log('-- error -->', error);
+    console.log('___________________________________');
 
     return { hasError: true };
   }
@@ -13,16 +14,18 @@ export default class ComponentC extends React.Component {
   /** New lifecycle method */
   static getDerivedStateFromProps(props, state) {
     console.log('Comp C - getDerivedStateFromProps()');
-    console.log('-- props -->', props);
-    console.log('-- state -->', state);
+    props.logArgs && console.log('-- props -->', props);
+    props.logArgs && console.log('-- state -->', state);
+    console.log('___________________________________');
 
     return state;
   }
 
   componentDidCatch(error, info) {
     console.log('Comp C - componentDidCatch()');
-    console.log('-- error -->', error);
-    console.log('-- info -->', info);
+    this.props.logArgs && console.log('-- error -->', error);
+    this.props.logArgs && console.log('-- info -->', info);
+    console.log('___________________________________');
   }
 
   state = {
@@ -34,39 +37,46 @@ export default class ComponentC extends React.Component {
     super(props);
 
     console.log('Comp C - constructor()');
-    console.log('-- props -->', props);
+    props.logArgs && console.log('-- props -->', props);
+    console.log('___________________________________');
   }
 
   /** Legacy lifecycle method */
   // componentWillReceiveProps(nextProps) {
   //   console.log('Comp C - componentWillReceiveProps() - legacy');
-  //   console.log('-- nextProps -->', nextProps);
+  //   this.props.logArgs && console.log('-- nextProps -->', nextProps);
+  //   console.log('___________________________________');
   // }
 
   /** Legacy lifecycle method with prefix */
   // UNSAFE_componentWillReceiveProps(nextProps) {
   //   console.log('Comp C - UNSAFE_componentWillReceiveProps() - legacy');
-  //   console.log('-- nextProps -->', nextProps);
+  //   this.props.logArgs && console.log('-- nextProps -->', nextProps);
+  //   console.log('___________________________________');
   // }
 
   /** Legacy lifecycle method */
   // componentWillMount() {
   //   console.log('Comp C - componentWillMount() - legacy');
+  //   console.log('___________________________________');
   // }
 
   /** Legacy lifecycle method with prefix */
   // UNSAFE_componentWillMount() {
   //   console.log('Comp C - UNSAFE_componentWillMount() - legacy');
+  //   console.log('___________________________________');
   // }
 
   componentDidMount() {
     console.log('Comp C - componentDidMount()');
+    console.log('___________________________________');
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log('Comp C - shouldComponentUpdate()');
-    console.log('-- nextProps -->', nextProps);
-    console.log('-- nextState -->', nextState);
+    this.props.logArgs && console.log('-- nextProps -->', nextProps);
+    this.props.logArgs && console.log('-- nextState -->', nextState);
+    console.log('___________________________________');
 
     return true;
   }
@@ -74,8 +84,9 @@ export default class ComponentC extends React.Component {
   /** New lifecycle method */
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log('Comp C - getSnapshotBeforeUpdate()');
-    console.log('-- prevProps -->', prevProps);
-    console.log('-- prevState -->', prevState);
+    prevProps.logArgs && console.log('-- prevProps -->', prevProps);
+    prevProps.logArgs && console.log('-- prevState -->', prevState);
+    console.log('___________________________________');
 
     return { anyValue: 512 };
   }
@@ -83,26 +94,30 @@ export default class ComponentC extends React.Component {
   /** Legacy lifecycle method */
   // componentWillUpdate(nextProps, nextState) {
   //   console.log('Comp C - componentWillUpdate() - legacy');
-  //   console.log('-- nextProps -->', nextProps);
-  //   console.log('-- nextState -->', nextState);
+  //   this.props.logArgs && console.log('-- nextProps -->', nextProps);
+  //   this.props.logArgs && console.log('-- nextState -->', nextState);
+  //   console.log('___________________________________');
   // }
 
   /** Legacy lifecycle method with prefix */
   // UNSAFE_componentWillUpdate(nextProps, nextState) {
   //   console.log('Comp C - UNSAFE_componentWillUpdate() - legacy');
-  //   console.log('-- nextProps -->', nextProps);
-  //   console.log('-- nextState -->', nextState);
+  //   this.props.logArgs && console.log('-- nextProps -->', nextProps);
+  //   this.props.logArgs && console.log('-- nextState -->', nextState);
+  //   console.log('___________________________________');
   // }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('Comp C - componentDidUpdate()');
-    console.log('-- prevProps -->', prevProps);
-    console.log('-- prevState -->', prevState);
-    console.log('-- snapshot -->', snapshot);
+    prevProps.logArgs && console.log('-- prevProps -->', prevProps);
+    prevProps.logArgs && console.log('-- prevState -->', prevState);
+    prevProps.logArgs && console.log('-- snapshot -->', snapshot);
+    console.log('___________________________________');
   }
 
   componentWillUnmount() {
     console.log('Comp C - componentWillUnmount()');
+    console.log('___________________________________');
   }
 
   toggleNameHandler = () => {
@@ -111,6 +126,7 @@ export default class ComponentC extends React.Component {
 
   render() {
     console.log('Comp C - render()');
+    console.log('___________________________________');
 
     const { name } = this.state;
     const { speed } = this.props;

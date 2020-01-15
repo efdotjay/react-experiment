@@ -5,11 +5,22 @@ import React from 'react';
 import { ComponentA } from './components';
 
 export default class App extends React.Component {
+  state = {
+    logArgs: true
+  };
+
+  toggleLogArgsHandler = () => {
+    this.setState(state => ({ logArgs: !state.logArgs }));
+  }
+
   render() {
+    const { logArgs } = this.state;
+
     return (
       <div>
         <h2>React lifecycle methods <sub>new</sub></h2>
-        <ComponentA />
+        <label htmlFor="log-args-ckbx"><input type="checkbox" id="log-args-ckbx" checked={logArgs} onClick={this.toggleLogArgsHandler} readOnly={true}/> Log arguments.</label>
+        <ComponentA {...{logArgs}}/>
       </div>
     );
   }
