@@ -12,13 +12,13 @@ export default class ComponentB extends React.Component {
   }
 
   /** New lifecycle method */
-  // static getDerivedStateFromProps(props, state) {
-  //   console.log('Comp B - getDerivedStateFromProps()');
-  //   console.log('-- props -->', props);
-  //   console.log('-- state -->', state);
+  static getDerivedStateFromProps(props, state) {
+    console.log('Comp B - getDerivedStateFromProps()');
+    console.log('-- props -->', props);
+    console.log('-- state -->', state);
 
-  //   return state;
-  // }
+    return state;
+  }
 
   componentDidCatch(error, info) {
     console.log('Comp B - componentDidCatch()');
@@ -41,26 +41,26 @@ export default class ComponentB extends React.Component {
   }
 
   /** Legacy lifecycle method */
-  componentWillReceiveProps(nextProps) {
-    console.log('Comp B - componentWillReceiveProps() - legacy');
-    console.log('-- nextProps -->', nextProps);
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   console.log('Comp B - componentWillReceiveProps() - legacy');
+  //   console.log('-- nextProps -->', nextProps);
+  // }
 
   /** Legacy lifecycle method with prefix */
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    console.log('Comp B - UNSAFE_componentWillReceiveProps() - legacy');
-    console.log('-- nextProps -->', nextProps);
-  }
+  // UNSAFE_componentWillReceiveProps(nextProps) {
+  //   console.log('Comp B - UNSAFE_componentWillReceiveProps() - legacy');
+  //   console.log('-- nextProps -->', nextProps);
+  // }
 
   /** Legacy lifecycle method */
-  componentWillMount() {
-    console.log('Comp B - componentWillMount() - legacy');
-  }
+  // componentWillMount() {
+  //   console.log('Comp B - componentWillMount() - legacy');
+  // }
 
   /** Legacy lifecycle method with prefix */
-  UNSAFE_componentWillMount() {
-    console.log('Comp B - UNSAFE_componentWillMount() - legacy');
-  }
+  // UNSAFE_componentWillMount() {
+  //   console.log('Comp B - UNSAFE_componentWillMount() - legacy');
+  // }
 
   componentDidMount() {
     console.log('Comp B - componentDidMount()');
@@ -75,27 +75,27 @@ export default class ComponentB extends React.Component {
   }
 
   /** New lifecycle method */
-  // getSnapshotBeforeUpdate(prevProps, prevState) {
-  //   console.log('Comp B - getSnapshotBeforeUpdate()');
-  //   console.log('-- prevProps -->', prevProps);
-  //   console.log('-- prevState -->', prevState);
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log('Comp B - getSnapshotBeforeUpdate()');
+    console.log('-- prevProps -->', prevProps);
+    console.log('-- prevState -->', prevState);
 
-  //   return { anyValue: 512 };
-  // }
+    return { anyValue: 512 };
+  }
 
   /** Legacy lifecycle method */
-  componentWillUpdate(nextProps, nextState) {
-    console.log('Comp B - componentWillUpdate() - legacy');
-    console.log('-- nextProps -->', nextProps);
-    console.log('-- nextState -->', nextState);
-  }
+  // componentWillUpdate(nextProps, nextState) {
+  //   console.log('Comp B - componentWillUpdate() - legacy');
+  //   console.log('-- nextProps -->', nextProps);
+  //   console.log('-- nextState -->', nextState);
+  // }
 
   /** Legacy lifecycle method with prefix */
-  UNSAFE_componentWillUpdate(nextProps, nextState) {
-    console.log('Comp B - UNSAFE_componentWillUpdate() - legacy');
-    console.log('-- nextProps -->', nextProps);
-    console.log('-- nextState -->', nextState);
-  }
+  // UNSAFE_componentWillUpdate(nextProps, nextState) {
+  //   console.log('Comp B - UNSAFE_componentWillUpdate() - legacy');
+  //   console.log('-- nextProps -->', nextProps);
+  //   console.log('-- nextState -->', nextState);
+  // }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('Comp B - componentDidUpdate()');
