@@ -1,0 +1,9 @@
+
+.ComponentContainer {
+  width: fit-content;
+  min-width: 350px;
+  border: 1px solid #2b2b2b;
+  border-radius: 5px;
+  padding: 0.8rem;
+  background-color: #f1f1f1;
+}

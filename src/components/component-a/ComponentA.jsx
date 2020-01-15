@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ComponentB } from '..';
+import classes from './ComponentA.module.css';
 
 export default class ComponentA extends React.Component {
   static getDerivedStateFromError(error) {
@@ -111,7 +112,7 @@ export default class ComponentA extends React.Component {
     const { color } = this.state;
 
     return (
-      <div>
+      <div className={classes.ComponentContainer}>
         <p style={{ color }}>Component <code>A</code></p>
         <ComponentB />
       </div>
