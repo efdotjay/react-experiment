@@ -2,13 +2,13 @@
 import React from 'react';
 // import logo from './logo.svg';
 // import './App.css';
-import { Test, ComponentA } from './components';
+import { ComponentA } from './components';
 
 export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Test />
+        <h2>React lifecycle methods <sub>old/legacy</sub></h2>
         <ComponentA />
       </div>
     );
